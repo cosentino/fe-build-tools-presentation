@@ -582,9 +582,9 @@ export default class Presentation extends React.Component {
             Domande?
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">
-            Relatore: Marcello Cosentino @ 2mlab @ Tecla @ LutechGroup
-            Presentazione realizzata con: Spectacle
-            {/* Repository: ... */}
+            Relatore: Marcello Cosentino - Frontend Engineer at @ 2mlab @ Tecla @ LutechGroup<br />
+            Presentazione realizzata con: Spectacle<br />
+            Repository: https://github.com/cosentino/fe-build-tools-presentation
           </Text>
         </Slide>
 
