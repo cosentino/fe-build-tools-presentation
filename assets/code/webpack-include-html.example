@@ -1,0 +1,9 @@
+<!-- example-page.html -->
+
+${require('./partials/head.html')}
+<div class="example-page">
+    ${require('./partials/header.html')}  
+    ...
+    ${require('./partials/footer.html')}  
+</div>
+${require('./partials/foot.html')}
