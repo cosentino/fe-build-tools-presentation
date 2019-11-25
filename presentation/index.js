@@ -19,7 +19,7 @@ import {
 } from 'spectacle';
 
 // Import theme
-import createTheme from 'spectacle/lib/themes/default';
+import createTheme from '../themes/custom';
 
 const images = {
   formidagon: require('../assets/formidable-logo.svg'),
@@ -48,6 +48,7 @@ const code = {
 // Require CSS
 require('normalize.css');
 
+// Spectacle default theme
 const theme = createTheme(
   {
     primary: '#1F2022',
@@ -71,7 +72,7 @@ export default class Presentation extends React.Component {
       >
 
         <Slide transition={['zoom']}>
-          <Heading size={1} fit caps lineHeight={1}>
+          <Heading size={1} fit caps>
             Frontend<br />
             Build Tools
           </Heading>
@@ -99,8 +100,7 @@ export default class Presentation extends React.Component {
             Perchè abbiamo bisogno di Build Tools?
           </Heading>
           <Text textColor="secondary">
-            Per automatizzare:
-            (https://giphy.com/gifs/satisfying-automation-engineers-2bGB88Dg5HSLe/fullscreen)
+            <strong>Per automatizzare!</strong>
           </Text>
           <List textColor="secondary">            
             <ListItem>Minification</ListItem>
@@ -108,7 +108,7 @@ export default class Presentation extends React.Component {
             <ListItem>Image optimization</ListItem>
             <ListItem>Launching tests</ListItem>
             <ListItem>Development web server</ListItem>
-            ...
+            &
             <ListItem>Bundling di JS, CSS, Icone</ListItem>
           </List>
         </Slide>
@@ -121,7 +121,11 @@ export default class Presentation extends React.Component {
             Long story short:
           </Text>
           <BlockQuote>
-            <Quote textColor="secondary" textSize="3rem" textAlign="center">"to puts your code and all its dependencies together in one [JavaScript/CSS/Sprite] file"</Quote>
+            <Quote textColor="secondary" textSize="2.6rem" textAlign="center">
+              "to puts your code<br />
+              and all its dependencies<br />
+              together, in one file"
+            </Quote>
             <Cite margin="1em 0 0 2em" textAlign="right">Somebody</Cite>
           </BlockQuote>
         </Slide>
@@ -149,11 +153,12 @@ export default class Presentation extends React.Component {
             Esempi:
           </Text>
           <List textColor="secondary">
-            <ListItem>Bundle manager: <b>Webpack</b>, Browserify, Parcel, Rollup</ListItem>
-            <ListItem>Task runner: Grunt, Gulp, ...</ListItem>
+            <ListItem><strong>Bundle manager</strong> - Webpack, Browserify, Parcel, Rollup</ListItem>
+            <ListItem><strong>Task runner</strong> - Grunt, Gulp, ...</ListItem>
           </List>
-          <Text textColor="secondary">
-            Webpack nasce come bundle manager ma in qualche misura è anche un task runner
+          <Text textColor="secondary" margin="4rem 0 0 0">
+            Webpack nasce come bundle manager, <br/ >
+            ma in qualche modo è anche un task runner.
           </Text>
         </Slide>
 
@@ -177,20 +182,15 @@ export default class Presentation extends React.Component {
             The old school way
           </Heading>
           <Text textColor="secondary" margin="0 0 0.7em">
-            Pros:
+            <strong>Pros:</strong><br /> semplice
           </Text>
-          <List textColor="secondary">
-            <ListItem>
-              Semplice
-            </ListItem>
-          </List>
           <Text textColor="secondary">
-            Cons:
+            <strong>Cons:</strong>
           </Text>
           <List textColor="secondary">
-            <ListItem>Non vengono esplicitate le dipendenze</ListItem>
-            <ListItem>Eventuali bundle devono essere creati e mantenuti manualmente</ListItem>
-            <ListItem>Non c'è modo di fare analisi serie (es: per ottimizzare il codice, fare code splitting)</ListItem>
+            <ListItem>Dipendenze non esplicitate</ListItem>
+            <ListItem>Bundling manuale!</ListItem>
+            <ListItem>No code analysis / optimization</ListItem>
             <ListItem>Global space pollution</ListItem>
           </List>
         </Slide>
@@ -236,7 +236,7 @@ export default class Presentation extends React.Component {
             The old school way
           </Heading>
           <Text textColor="secondary" margin="0 0 0.7em">
-            Pros:
+            <strong>Pros:</strong>
           </Text>
           <List textColor="secondary">
             <ListItem>dipendenze esplicite</ListItem>
@@ -245,11 +245,9 @@ export default class Presentation extends React.Component {
             <ListItem>code splitting</ListItem>
           </List>
           <Text textColor="secondary">
-            Cons:
+            <strong>Cons:</strong><br />
+            più complesso
           </Text>
-          <List textColor="secondary">
-            <ListItem>più complesso</ListItem>
-          </List>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">
@@ -259,15 +257,24 @@ export default class Presentation extends React.Component {
           <Text textColor="secondary" margin="0 0 1.2em">
             "Static module bundler<br />
             for modern Javascript applications"
-          </Text>
+          </Text>          
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
+            Webpack
+          </Heading>
           <Text textColor="secondary" margin="0 0 0.7em">
             And much more:
           </Text>
-          <Text textColor="secondary" margin="0 0 0.7em">            
-            - Dev Server con Hot Module Replacement<br />
-            - Internamente costruisce un dependency graph al fine di generare uno o più bundle<br />
-          </Text>
-        </Slide>        
+          <List textColor="secondary">
+            <ListItem>Internamente costruisce un <strong>dependency graph</strong></ListItem>
+            <ListItem>Ottimizzazione dei bundle</ListItem>
+            <ListItem>Code splitting</ListItem>
+            <ListItem><strong>Dev Server</strong> con Hot Module Replacement</ListItem>
+            <ListItem>HTML partials</ListItem>
+          </List>
+        </Slide>
 
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
@@ -277,7 +284,7 @@ export default class Presentation extends React.Component {
             Supporta varie sintassi per la definizione delle dipendenze:
           </Text>
           <List textColor="secondary">
-            <ListItem>ES2015 import :)</ListItem>
+            <ListItem><strong>ES2015 import</strong> :)</ListItem>
             <ListItem>CommonJS require()</ListItem>
             <ListItem>JS AMD define / require</ListItem>
             <ListItem>css/sass/less @import  </ListItem>
@@ -317,7 +324,8 @@ export default class Presentation extends React.Component {
             Webpack: Concepts
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">            
-            Configuration based (perlopiù): "webpack.config.js"<br />
+            Configuration based (perlopiù):<br />
+            "webpack.config.js"<br />
             <br />
             Concetti:
           </Text>
@@ -334,7 +342,9 @@ export default class Presentation extends React.Component {
             Webpack: Entry point
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">            
-            Gli entry point indicano a webpack <strong>da quali moduli deve partire</strong> per costruirsi il dependency graph.
+            Gli entry point indicano a webpack<br />
+            <strong>da quali moduli deve partire</strong><br />
+            per costruirsi il dependency graph.
           </Text>
         </Slide>
                   
@@ -344,7 +354,9 @@ export default class Presentation extends React.Component {
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">
             Di base webpack gestisce solo Javascript.<br />
-            I loader permettono di processare e <strong>creare bundle per altri tipi di file</strong>.
+            <br />
+            I loader permettono di processare<br />
+            e <strong>creare bundle per altri tipi di file</strong>.
           </Text>
           <CodePane
             textSize="0.6em"
@@ -367,8 +379,11 @@ export default class Presentation extends React.Component {
             Webpack: Plugins
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">            
-            Mentre i Loader permettono di trasformare certi tipi di file,
-            i Plugin permettono di <strong>altre tipi di operazioni più complesse</strong> come:
+            Mentre i Loader permettono di<br />
+            trasformare certi tipi di file,<br />
+            <br />
+            i Plugin permettono<br />
+            <strong>operazioni più complesse</strong>:<br />            
           </Text>
           <List textColor="secondary">            
             <ListItem>bundle optimization</ListItem>
@@ -383,7 +398,10 @@ export default class Presentation extends React.Component {
             Webpack: Plugins
           </Heading>
           <Text textColor="secondary" margin="0 0 1.2em">
-            Esempio: <strong>html-webpack-plugin</strong> genera un file HTML iniettandovi tutti i bundle generati
+            Esempio:<br />
+            <strong>html-webpack-plugin</strong><br />
+            processa un singolo file HTML<br />
+            iniettandovi tutti i bundle generati.
           </Text>
           <CodePane
             textSize="0.8em"
@@ -556,9 +574,13 @@ export default class Presentation extends React.Component {
             Tre metodi principali (non esclusivi):
           </Text>
           <List textColor="secondary">
-            <ListItem textSize="1em"><strong>Multiple Entry Points</strong>: indicando manualmente più entry point, uno per ogni bundle</ListItem>
-            <ListItem textSize="1em"><strong>Prevent Duplication: SplitChunksPlugin</strong> ottimizza ulteriormente estraendo le dipendenze comuni, ad esempio in un nuovo bundles</ListItem>
-            <ListItem textSize="1em"><strong>Dynamic Imports</strong>: import() asincrono di dipendenze, causa la creazione di bundle separati, caricabili in modalità lazy.</ListItem>
+            <ListItem textSize="1em"><strong>Multiple Entry Points</strong>, uno per ogni bundle</ListItem>
+            <ListItem textSize="1em"><strong>Prevent Duplication: SplitChunksPlugin</strong> ottimizza ulteriormente estraendo le dipendenze comuni</ListItem>
+            <ListItem textSize="1em">
+              <strong>Dynamic Imports</strong>: import() asincrono di dipendenze,<br />
+              causa la creazione di bundle separati,<br />
+              caricabili in modalità lazy.
+            </ListItem>
           </List>
           <Link textSize="0.5em" textColor="secondary" href="https://webpack.js.org/guides/code-splitting/" target="_blank">
             Approfondimento: https://webpack.js.org/guides/code-splitting/
@@ -581,10 +603,17 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
             Domande?
           </Heading>
-          <Text textColor="secondary" margin="0 0 1.2em">
-            Relatore: Marcello Cosentino - Frontend Engineer at @ 2mlab @ Tecla @ LutechGroup<br />
-            Presentazione realizzata con: Spectacle<br />
-            Repository: https://github.com/cosentino/fe-build-tools-presentation
+          <Text textColor="secondary" margin="5em 0 0" textSize="1.5rem">
+            <strong>Relatore:</strong><br />
+            Marcello Cosentino<br />
+            Frontend Engineer<br />
+            @ 2mlab - Tecla - Lutech Group<br />
+            <br />
+            Presentazione realizzata con:<br />
+            <strong>Spectacle</strong><br />
+            <br />
+            <strong>Repository:</strong><br />
+            https://github.com/cosentino/fe-build-tools-presentation
           </Text>
         </Slide>
 
