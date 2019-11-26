@@ -22,7 +22,10 @@ import {
 import createTheme from '../themes/custom';
 
 const images = {
-  formidagon: require('../assets/formidable-logo.svg'),
+  automation: require('../assets/automation.gif'),
+  webpackLogo: require('../assets/webpack-logo.png'),
+  confused: require('../assets/confused.png'),
+  ie: require('../assets/ie.jpg'),
   goodWork: require('../assets/good-work.gif')
 };
 
@@ -95,6 +98,16 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
+            Perchè abbiamo bisogno di Build Tools?
+          </Heading>
+          <Text textColor="secondary">
+            <strong>Per automatizzare!</strong>
+          </Text>
+          <Image src={images.automation} />
+        </Slide>
+        
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
             Perchè abbiamo bisogno di Build Tools?
@@ -233,7 +246,7 @@ export default class Presentation extends React.Component {
         <Slide transition={['fade']} bgColor="primary">
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
             Dependencies:<br />
-            The old school way
+            Modern approaches
           </Heading>
           <Text textColor="secondary" margin="0 0 0.7em">
             <strong>Pros:</strong>
@@ -254,10 +267,11 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
             Webpack
           </Heading>
-          <Text textColor="secondary" margin="0 0 1.2em">
+          <Image src={images.webpackLogo} width="150px" />
+          <Text textColor="secondary">
             "Static module bundler<br />
             for modern Javascript applications"
-          </Text>          
+          </Text>
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">
@@ -284,12 +298,12 @@ export default class Presentation extends React.Component {
             Supporta varie sintassi per la definizione delle dipendenze:
           </Text>
           <List textColor="secondary">
-            <ListItem><strong>ES2015 import</strong> :)</ListItem>
+            <ListItem bulletStyle="classicCheck"><strong>ES2015 import</strong> :)</ListItem>
             <ListItem>CommonJS require()</ListItem>
             <ListItem>JS AMD define / require</ListItem>
-            <ListItem>css/sass/less @import  </ListItem>
-            <ListItem>image url in a stylesheet url(...) or img tag</ListItem>
-            <ListItem>require di frammenti di html</ListItem>
+            <ListItem bulletStyle="classicCheck">css/sass/less @import  </ListItem>
+            <ListItem bulletStyle="classicCheck">image url in a stylesheet url(...) or img tag</ListItem>
+            <ListItem bulletStyle="classicCheck">require di frammenti di html</ListItem>
           </List>
         </Slide>
 
@@ -383,7 +397,26 @@ export default class Presentation extends React.Component {
             trasformare certi tipi di file,<br />
             <br />
             i Plugin permettono<br />
-            <strong>operazioni più complesse</strong>:<br />            
+            <strong>operazioni più complesse</strong>...
+          </Text>
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
+            Webpack: Plugins
+          </Heading>
+          <Text textColor="secondary" margin="0 0 1.2em">                        
+            <strong>Operazioni più complesse!?</strong>
+          </Text>
+          <Image src={images.confused} />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
+            Webpack: Plugins
+          </Heading>
+          <Text textColor="secondary" margin="0 0 1.2em">
+            <strong>Operazioni più complesse</strong>:<br />
           </Text>
           <List textColor="secondary">            
             <ListItem>bundle optimization</ListItem>
@@ -430,6 +463,14 @@ export default class Presentation extends React.Component {
             margin="20px auto"
             overflow="overflow"
           />
+        </Slide>
+
+        <Slide transition={['fade']} bgColor="primary">
+          <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
+            Webpack: Extend<br /> 
+            Browser Compatibility
+          </Heading>
+          <Image src={images.ie} width="500px" />
         </Slide>
 
         <Slide transition={['fade']} bgColor="primary">
@@ -603,7 +644,8 @@ export default class Presentation extends React.Component {
           <Heading size={3} margin="0 0 0.7em" textColor="tertiary">
             Domande?
           </Heading>
-          <Text textColor="secondary" margin="5em 0 0" textSize="1.5rem">
+          <Image src={images.goodWork} />
+          <Text textColor="secondary" margin="2em 0 0" textSize="1.5rem">
             <strong>Relatore:</strong><br />
             Marcello Cosentino<br />
             Frontend Engineer<br />
