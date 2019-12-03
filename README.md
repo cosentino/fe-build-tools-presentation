@@ -2,6 +2,9 @@
 
 # Spectacle Boilerplate
 
+Published on GitHub Pages at
+https://cosentino.github.io/fe-build-tools-presentation/
+
 ## Setup
 
 Install dependencies
