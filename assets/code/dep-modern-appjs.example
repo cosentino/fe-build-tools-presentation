@@ -1,3 +1,0 @@
-// app.js
-import { someLib } from 'some-lib';
-import { MyCarousel } from '/js/libs/my-carousel';
