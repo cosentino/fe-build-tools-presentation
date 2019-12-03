@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js install gh-pages
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\Yarn\bin\;C:\HashiCorp\Vagrant\bin;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\nodejs\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\System32\OpenSSH\;C:\Users\m2cosentino\AppData\Local\Programs\Python\Launcher\;C:\Users\m2cosentino\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\m2cosentino\AppData\Local\Programs\Fiddler;C:\Users\m2cosentino\AppData\Local\Yarn\bin;C:\Users\m2cosentino\AppData\Roaming\npm;C:\Users\m2cosentino\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Java\jdk1.8.0_192\bin;C:\Gradle\gradle-5.6.2\bin;
@@ -19,13 +19,16 @@ npm manifest:
     "version": "1.0.1",
     "description": "ReactJS Powered Presentation Framework",
     "main": "lib/index.js",
+    "homepage": "https://cosentino.github.io/fe-build-tools-presentation",
     "scripts": {
       "build": "npm run clean & cross-env NODE_ENV=production webpack --config webpack.config.production.js",
       "clean": "rimraf dist",
       "deploy": "npm run build && surge -p .",
       "export": "spectacle-renderer --delay 3000",
       "lint": "eslint --ext .js,.jsx .",
-      "start": "cross-env NODE_ENV=development node server.js"
+      "start": "cross-env NODE_ENV=development node server.js",
+      "gh-pages-predeploy": "npm run build",
+      "gh-pages-deploy": "npx gh-pages -d build"
     },
     "author": "Formidable Labs <hello@formidable.com> (https://formidable.com)",
     "license": "MIT",
@@ -36,7 +39,8 @@ npm manifest:
       "react": "^16.5.2",
       "react-dom": "^16.5.2",
       "spectacle": "^5.5.0",
-      "spectacle-renderer": "^0.0.3"
+      "spectacle-renderer": "^0.0.3",
+      "spectacle-theme-nova": "^1.4.1"
     },
     "devDependencies": {
       "@babel/cli": "^7.1.2",
@@ -64,6 +68,7 @@ npm manifest:
       "eslint-plugin-react": "^7.11.1",
       "express": "^4.16.3",
       "file-loader": "^2.0.0",
+      "gh-pages": "^2.1.1",
       "html-loader": "^0.5.5",
       "is-buffer": "^2.0.3",
       "markdown-loader": "^4.0.0",
@@ -75,6 +80,7 @@ npm manifest:
       "rimraf": "^2.6.2",
       "style-loader": "^0.23.0",
       "surge": "latest",
+      "terser-webpack-plugin": "^2.2.1",
       "uglifyjs-webpack-plugin": "^2.0.1",
       "url-loader": "^1.1.1",
       "webpack": "4.20.2",
@@ -9243,16 +9249,9 @@ Lockfile:
       yeoman-environment "^2.0.5"
 
 Trace: 
-  Error: Command failed.
-  Exit code: 3221225786
-  Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c cross-env NODE_ENV=development node server.js
-  Directory: C:\Progetti\fe-build-tools-presentation
-  Output:
-  
-      at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Program Files (x86)\Yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:30281:17)
-      at ChildProcess.emit (events.js:198:13)
-      at maybeClose (internal/child_process.js:982:16)
-      at Process.ChildProcess._handle.onexit (internal/child_process.js:259:5)
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add gh-pages" instead.
+      at new MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)
+      at Object.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:21987:13)
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:98:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:109:13
