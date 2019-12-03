@@ -1,8 +1,8 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 /* eslint-disable */
 
 var path = require("path");
 var webpack = require("webpack");
+var TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -44,7 +44,10 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader"
+            loader: "babel-loader",
+            options: {
+              presets: [['@babel/preset-env']],
+            }
           }
         ]
       },
@@ -89,7 +92,11 @@ module.exports = {
 
   optimization: {
     minimize: true,
-
-    minimizer: [new UglifyJsPlugin()]
+    minimizer: [new TerserPlugin({
+      parallel: true,
+      terserOptions: {
+        ecma: 6,
+      },
+    })]
   }
 };
